@@ -14,7 +14,7 @@ class Controller:
     def __setup_routes(self):
         pass
         self._app.add_url_rule('/insert/data', view_func=self._insert_data, methods=['POST'])
-        self._app.add_url_rule('/get/data', view_func=self._get_data, methods=['GET'])
+        # self._app.add_url_rule('/get/data', view_func=self._get_data, methods=['GET'])
         
     def _insert_data(self):
         try:
@@ -29,8 +29,8 @@ class Controller:
         except Exception as e:
             return str(e), 500
     
-    def _get_data(self):
-        return jsonify({'message': 'Data saved successfully'})
+    # def _get_data(self):
+    #     return jsonify({'message': 'Data saved successfully'})
 
     def run(self):
         self._app.run(host='0.0.0.0')
