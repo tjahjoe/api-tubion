@@ -29,8 +29,8 @@ class Controller:
         except Exception as e:
             return str(e), 500
     
-    # def _get_data(self):
-    #     return jsonify({'message': 'Data saved successfully'})
+    def _get_data(self):
+        return jsonify({'message': 'Data saved successfully'})
 
     def run(self):
         self._app.run(host='0.0.0.0')
