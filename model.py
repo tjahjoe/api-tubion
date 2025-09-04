@@ -2,18 +2,11 @@ from pymongo import MongoClient
 from pymongo.server_api import ServerApi
 from datetime import datetime
 import os
-import certifi
 
 class Model():
     def __init__(self):
         self.__client = MongoClient(
-            os.environ.get('MONGODB_API'), 
-            server_api=ServerApi('1'),
-            tls=True,
-            tlsCAFile=certifi.where(),
-            connectTimeoutMS=None,  
-            socketTimeoutMS=None,
-            serverSelectionTimeoutMS=None)
+            os.environ.get('MONGODB_API'), server_api=ServerApi('1'))
         try:
             self.__database = self.__client.get_database('tubion')
             self.__collection()
